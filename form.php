@@ -17,6 +17,11 @@ if(isset($_POST["submit"])){
     if(isset($_POST["min"]) && isset($_POST["max"])){
         $min = intval(strip_tags($_POST["min"]));
         $max = intval(strip_tags($_POST["max"]));
+        if($min > getrandmax()){
+            $min = getrandmax();
+        }
+        if($max > getrandmax())
+            $max = getrandmax();
         if($min > $max){
             echo alea($max,$min);
         }
