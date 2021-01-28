@@ -9,3 +9,19 @@
 
 http://php.net/manual/fr/function.mt-rand.php
 */
+function alea($min,$max): int{
+    return rand($min,$max);
+}
+
+if(isset($_POST["submit"])){
+    if(isset($_POST["min"]) && isset($_POST["max"])){
+        $min = intval(strip_tags($_POST["min"]));
+        $max = intval(strip_tags($_POST["max"]));
+        if($min > $max){
+            echo alea($max,$min);
+        }
+        else{
+            echo alea($min,$max);
+        }
+    }
+}
